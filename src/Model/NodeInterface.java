@@ -1,31 +1,34 @@
+// Author: Yuri braga
+// 2017141
+
 package Model;
 
 
-// This interface will provide a structure for my Node class.
+// This interface will hold the methods that a Node should have.
  
 
 public interface NodeInterface <E> {
 	
-	// This method will set an element.
+	// To set an element.
 	public void setElement(E element);
 	
-	// This method will get and return an Element.
+	// To get and return an Element.
 	
 	public E getElement();
 	
-	// This method will enable to set an Element.
+	// To enable to set an Element.
 	  public void setNext(Node<E> next);
 		
 	
 	
-	// This method will set previous Node.
+	// To set previous Node.
 	
 	public void setPrev(Node<E> prev);
 	
-	// This method will get Next Node.
+	// To get Next Node.
 	
 	public Node<E> getNext();
-	// This method will get previous Node.
+	// To get previous Node.
 	
 	public Node<E> getPrev();
 

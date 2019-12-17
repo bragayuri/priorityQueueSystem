@@ -126,7 +126,7 @@ public void displayForward() {
 			
 			for ( int y = this.size(); y>=position;y--)
 				
-				newNode = newNode.getPrevious();
+				newNode = newNode.getPrev();
 			
 			
 		}
@@ -198,8 +198,8 @@ public void displayForward() {
 	@Override
 	public void addBefore(Node<E> toBeAdded, Node<E> before) {
 		toBeAdded.setNext(before);
-		toBeAdded.setaPrev(before.getPrevious());
-		before.getPrevious().setNext(toBeAdded);
+		toBeAdded.setaPrev(before.getPrev());
+		before.getPrev().setNext(toBeAdded);
 		before.setPrevious(toBeAdded);
 		size ++;
 	
@@ -234,7 +234,7 @@ public void displayForward() {
 	@Override
 	public E last() {
 		if (isEmpty()) return null;
-		return tail.getPrevious().getElement();
+		return tail.getPrev().getElement();
 	}
 
 
@@ -250,7 +250,7 @@ public void displayForward() {
 		if (isEmpty())
 			return null;
 		
-		return  remove(tail.getPrevious());
+		return  remove(tail.getPrev());
 	}
 
 
@@ -263,7 +263,7 @@ public void displayForward() {
 
 	@Override
 	public E remove(Node<E> node) {
-		Node<E> before = node.getPrevious();
+		Node<E> before = node.getPrev();
 		Node<E> after = node.getNext();
 		
 		before.setNext(after);

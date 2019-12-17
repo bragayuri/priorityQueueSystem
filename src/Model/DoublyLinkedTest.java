@@ -1,3 +1,11 @@
+/*
+ * Author: Yuri Braga
+ * 
+ * This is a test class for my linked list methods.
+ * I tried to implement an Inner class Node.
+ * After all I could not use this class.
+ */
+
 package Model;
 
 import javax.swing.JOptionPane;

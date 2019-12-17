@@ -1,24 +1,24 @@
+// Author: Yuri Braga
+// 2017141
+
+// Class Node will hold the Node element that forms a doubly linked list.
+
+
 package Model;
 
 import View.addPerson;
 
+// this class will implement Node Interface which holds the desirable methods to be used.
+
 public class Node <E> implements NodeInterface {
 	
-		private E element; // the data which comes from my Person class.
+		E element; // the data which comes from my Person class.
 		private Node<E> next; // next Node.
-		private Node<E> prev; // previous Node.
+		Node<E> prev; // previous Node.
 		
 		
-		protected String qNumber;
-	    protected String idProfile;
-		protected String surname;
-		protected String firstName;
-		protected String dateArrival;
-		protected String passport;
-		protected String priorityLevel;
-		DoublyLinkedListImpl<E> queue;
 		
-		
+		// Constructor to initialise variables.
 		public Node(E element, Node<E >prev,Node<E>next) {
 			this.element=element;
 			this.next=next;
@@ -35,16 +35,7 @@ public class Node <E> implements NodeInterface {
 			this.element = element;
 		}
 
-		public Node(String a, String b, String c, String d, String E, String f, String g) {
-			this.qNumber=a;
-			this.idProfile=b;
-			this.surname=c;
-			this.firstName=d;
-			this.dateArrival=E;
-			this.passport=f;
-			this.priorityLevel=g;
-			
-			element=(E) (qNumber+idProfile+surname+firstName+dateArrival+passport+priorityLevel);
+		
 			
 			
 			
