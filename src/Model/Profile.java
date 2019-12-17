@@ -1,9 +1,11 @@
-//Yuri Braga 2017141
+//Author:Yuri Braga
+//2017141
 
 package Model;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Random;
 
 import Model.DoublyLinkedListImpl.Node;
 
@@ -29,6 +31,7 @@ public class Profile {
 	protected String dateArrival;
 	protected String passport;
 	protected String priorityLevel;
+	private Priority priority;
 	
 	DoublyLinkedListImpl outerclass;
 	
@@ -53,31 +56,23 @@ public class Profile {
 		this.priorityLevel=g;
 		
 		
+		String message =
+				  "INSERT INTO `queue`.`profile` (`qNumber`,`idProfile`,`Surname`,`firstName`,`arrivalDate`,`passport`,`priorityLevel`) "
+				  + "VALUES ('" + qNumber + "','" + idProfile + "', '" + surname + "', '" +
+				  firstName + "','" + dateArrival + "','" + passport + "','" + priorityLevel +
+				  "');";
+				  
+				  Db mydb = new Db(); mydb.DbInsertCustomer(message);
 		
-		element= new Node(a,b,c,d,E,f,g);
 		
-		
-		
-		
-		
-		// element= new Profile (a,b,c,d,E,f,g);
-			
-			//queue = new DoublyLinkedListImpl<Profile>();
-			//queue.addFirst(element);
 		
 		
 	  
 		
-		/*
-		 * String message =
-		 * "INSERT INTO `queue`.`profile` (`qNumber`,`idProfile`,`Surname`,`firstName`,`arrivalDate`,`passport`,`priorityLevel`) "
-		 * + "VALUES ('" + qNumber + "','" + idProfile + "', '" + surname + "', '" +
-		 * firstName + "','" + dateArrival + "','" + passport + "','" + priorityLevel +
-		 * "');";
-		 * 
-		 * Db mydb = new Db(); mydb.DbInsertCustomer(message);
-		 * 
-		 */
+		
+		  
+		  
+		 
 	}
 	
 	
@@ -88,10 +83,34 @@ public class Profile {
 	
 	
 	
-	
+
+       
 			
 	
 	
+	public Profile(String text, String text2, String text3, String text4, String text5, Object selectedItem) {
+		this.firstName = text;
+		this.idProfile = text2;
+		this.surname= text3;
+		this.dateArrival= text4;
+		this.passport= text5;
+		this.priority= (Priority) selectedItem;
+		
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	// My getters and Setters for the values set on this class.
 	// The Setter and Getters will enable to get each attribute of this class whatever I would like to use it.
 	public String getqNumber() {

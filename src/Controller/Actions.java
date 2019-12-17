@@ -6,6 +6,7 @@
 package Controller;
 import java.util.ArrayList;
 
+import Model.DoublyLinkedTest;
 import Model.Profile;
 
 // This class will make add a new customer to an ArrayList every time a new user is generated.
@@ -17,11 +18,14 @@ public class Actions{
 	
 	ArrayList<Profile> people = new ArrayList();
 	
+	
 	/*
 	 * this method will add a new customer to an ArrayList.
 	 */
 	public void cadastraCustomer(Profile contact) {
 		people.add(contact);
+		
+		
 	}
 	
 	/*
@@ -30,6 +34,7 @@ public class Actions{
 	
 	public String numberOfContacts() {
 		return people.size()+"";
+		
 	}
 	
 }

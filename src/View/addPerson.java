@@ -1,3 +1,8 @@
+/*
+ * Author: Yuri Braga
+ * 2017141
+ */
+
 package View;
 
 import java.awt.Font;
@@ -10,9 +15,8 @@ import javax.swing.Action;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 
-/*   name:Yuri Braga
- *   student number:2017141
- */
+
+ 
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -22,10 +26,11 @@ import javax.swing.JTextField;
 
 import Controller.Actions;
 import Model.DoublyLinkedListImpl;
+import Model.DoublyLinkedTest;
 import Model.Profile;
 
 /*
- * The responsibility of this class is to ensure a frame is set and the User can register a new Person.
+ * The responsibility of this class is to ensure a frame is set and the User can register a new Profile.
  * This class is extending JFrame and Implementing the ActionListener interface.
  */
 
@@ -44,7 +49,7 @@ public class addPerson extends JFrame implements ActionListener {
 	Actions action = new Actions();
 	
 
-	DoublyLinkedListImpl<Profile> queue;
+	DoublyLinkedTest<Profile> person;
 	
 	//My constructor which will set up my frame and its attributes. 
 	public addPerson() {
@@ -201,11 +206,15 @@ public class addPerson extends JFrame implements ActionListener {
 			//Instance of my Profile class receiving the String values.
 			
 			Profile myprofile = new Profile(a,b,c,d,E,f,g);
-			/*
-			 * queue = new DoublyLinkedListImpl<Profile>(); queue.addFirst(myprofile);
-			 */
 			
-			// Actions class will add the new user to an ArrayList
+			DoublyLinkedTest<Profile> dll = new DoublyLinkedTest();
+			dll.insertLast(myprofile);
+			dll.displayForward();
+			
+			 
+			 
+			
+			// Actions class will add the new profile to an ArrayList
 						action.cadastraCustomer(myprofile);
 						
 			//This will display the amount of registered Users saved on an ArrayList.
@@ -214,7 +223,7 @@ public class addPerson extends JFrame implements ActionListener {
 						JOptionPane.showMessageDialog(this, "Register Completed!");
 
 						// This is a test to be displayed on the Console if everything works.
-						System.out.println(myprofile);
+					//	System.out.println(myprofile);
 
 						//This will erase the values of my JTextField once transaction is done.
 						t2.setText("");
@@ -222,6 +231,7 @@ public class addPerson extends JFrame implements ActionListener {
 						t5.setText("");
 						t6.setText("");
 						t7.setText("");
+						
 						
 						/*
 						 * The else if will direct the user to the previous page in case GOBACK button is pressed.         

@@ -2,6 +2,7 @@
 
 package View;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 
 import java.awt.Font;
@@ -20,10 +21,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
+import Model.DoublyLinkedListImpl;
 import Model.Profile;
 
 
@@ -74,6 +77,9 @@ public class MainPanel extends JFrame implements ActionListener {
 		protected String passport;
 		protected String priorityLevel;
 		
+		JTextArea queuetxt = new JTextArea();
+		
+		private DoublyLinkedListImpl <Profile >list;
 		
 		/* 
 		 * Here is my default Table Model which will hold the values from my ArrayList.
@@ -84,7 +90,11 @@ public class MainPanel extends JFrame implements ActionListener {
 	public MainPanel() {
 		this.setVisible(true);
 		this.setSize(800, 800);
+		
+		queuetxt.setEditable(false);
 
+		
+		
 		/*
 		 * creating a GridLayout to organise all the items.
 		 */
@@ -155,8 +165,8 @@ public class MainPanel extends JFrame implements ActionListener {
 		
 		JButton btn5 = new JButton("EDIT QUEUE");
 		two.add(btn5);
-		btn4.setActionCommand("Media");
-		btn4.addActionListener(this);
+		btn5.setActionCommand("e");
+		btn5.addActionListener(this);
 
 		// ######################################################################################################
 		JPanel three = new JPanel();
@@ -202,56 +212,14 @@ public class MainPanel extends JFrame implements ActionListener {
 	        
 	        
 	        
-	        
-		/*
-		 * GridLayout grid3 = new GridLayout(4, 1); // creating a GridLayout to organise
-		 * all the items. left.setLayout(grid3);
-		 * 
-		 * //
-		 * #############################################################################
-		 * #########################
-		 * 
-		 * JPanel right = new JPanel(); three.add(right);
-		 * 
-		 * 
-		 * 
-		 * JPanel newpanel = new JPanel(); left.add(newpanel);
-		 */
-		
-
-		// ###########################################################
-		/*
-		 * GridLayout grid4 = new GridLayout(5, 1); // creating a GridLayout to organise
-		 * all the items. right.setLayout(grid4);
-		 * 
-		 * JPanel right1 = new JPanel(); right.add(right1);
-		 * 
-		 * JPanel right2 = new JPanel(); right.add(right2);
-		 * 
-		 * JPanel right3 = new JPanel(); right.add(right3);
-		 * 
-		 * JPanel right4 = new JPanel(); right.add(right4);
-		 * 
-		 * JPanel right5 = new JPanel(); right.add(right5);
-		 * 
-		 * JLabel quick2 = new JLabel("Quick subscription check"); right1.add(quick2);
-		 * 
-		 * JLabel quick3 = new JLabel("Enter Customer ID number"); right2.add(quick3);
-		 * 
-		 * JLabel quick6 = new JLabel("Id"); right3.add(quick6);
-		 * 
-		 * JTextField customeridtxt = new JTextField(10); right3.add(customeridtxt);
-		 * 
-		 * JLabel quick5 = new JLabel("Email"); right4.add(quick5);
-		 * 
-		 * JTextField customemailtxt = new JTextField(10); right4.add(customemailtxt);
-		 * 
-		 * JButton searchbtn2 = new JButton("Search"); right5.add(searchbtn2);
-		 * searchbtn2.setActionCommand("Search"); searchbtn2.addActionListener(this);
-		 */
+	   
 		this.validate();
 		this.repaint();
 
+	}
+	
+	public DoublyLinkedListImpl<Profile> getList(){
+		return list;
 	}
 	
 	public void Db() {
@@ -361,19 +329,7 @@ public class MainPanel extends JFrame implements ActionListener {
 	}
 
 	@Override
-	/*
-	 * public void actionPerformed(ActionEvent e) { // TODO Auto-generated method
-	 * stub
-	 * 
-	 * }
-	 */
-
-	// This method will define which action will be taken according to the user
-	// decision.
-	// If user chooses Customer.The program will open the ManageCustomer class.
-	// If user chooses Media. The Program will open ManageARental class.
-	// If user chooses Register. The Program will open ManageTitle class.
-
+	
 	//@Override
 	public void actionPerformed(ActionEvent e) {
 		
@@ -388,16 +344,23 @@ public class MainPanel extends JFrame implements ActionListener {
 
 			CheckPosition nr = new CheckPosition();
 
-		} else if ((e.getActionCommand().equals("delete"))) {
+		}
+		if ((e.getActionCommand().equals("e"))) {
+			
+			
+			System.out.println("LIST: ");
+			list.displayForward();
+			
+			
+          
+			
+
+		}
+		else if ((e.getActionCommand().equals("delete"))) {
 			this.dispose();
 
 			DeletePerson del = new DeletePerson();
 
-		/*} else if ((e.getActionCommand().equals("Search"))) {
-			this.dispose();
-			
-			SearchCustomerPanel np = new SearchCustomerPanel();
-		}*/
 
 
 	}
